@@ -1,0 +1,21 @@
+/* style.css */
+body {
+    /* Set line height to 1.5 and use the OS UI font */
+    font: 100%/1.5 system-ui;
+    margin: 24px;
+    color: #222;
+  }
+  
+  nav {
+    margin-bottom: 16px;
+  }
+  nav a {
+    text-decoration: none;
+    margin-right: 12px;
+  }
+  nav a:hover { text-decoration: underline; }
+  
+  h1, h2, h3 { line-height: 1.2; }
+  
+  img { border-radius: 8px; display: block; margin-top: 12px; }
+  
