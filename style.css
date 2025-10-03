@@ -1,14 +1,97 @@
 /* style.css */
+
+/* General page setup */
 body {
-    font: 100%/1.5 system-ui;
+    font: 100%/1.5 system-ui, sans-serif;
     margin: 24px;
     color: #222;
+    background-color: #fafafa;
   }
   
-  nav { margin-bottom: 16px; }
-  nav a { text-decoration: none; margin-right: 12px; }
-  nav a:hover { text-decoration: underline; }
+  /* Navigation */
+  nav {
+    margin-bottom: 20px;
+  }
   
-  h1, h2, h3 { line-height: 1.2; }
-  img { border-radius: 8px; display: block; margin-top: 12px; }
+  nav a {
+    text-decoration: none;
+    margin-right: 16px;
+    color: #0077cc;
+    font-weight: 500;
+  }
+  
+  nav a:hover {
+    text-decoration: underline;
+    color: #004c99;
+  }
+  
+  /* Headings */
+  h1, h2, h3 {
+    line-height: 1.2;
+    margin-top: 20px;
+    margin-bottom: 12px;
+  }
+  
+  /* Paragraphs */
+  p {
+    max-width: 700px;
+  }
+  
+  /* Images */
+  img {
+    border-radius: 8px;
+    display: block;
+    margin-top: 16px;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Project list */
+  ul {
+    margin-left: 20px;
+    list-style-type: disc;
+  }
+  
+  li {
+    margin-bottom: 6px;
+  }
+  
+  /* Contact form */
+  form {
+    max-width: 400px;
+    padding: 12px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  form div {
+    margin-bottom: 12px;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  input, textarea {
+    width: 100%;
+    padding: 6px;
+    margin-top: 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  button {
+    background-color: #0077cc;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #005fa3;
+  }
   
