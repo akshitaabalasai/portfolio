@@ -1,6 +1,5 @@
 /* style.css */
 
-/* General page setup */
 body {
     font: 100%/1.5 system-ui, sans-serif;
     margin: 24px;
@@ -8,7 +7,6 @@ body {
     background-color: #fafafa;
   }
   
-  /* Navigation */
   nav {
     margin-bottom: 20px;
   }
@@ -25,19 +23,16 @@ body {
     color: #004c99;
   }
   
-  /* Headings */
   h1, h2, h3 {
     line-height: 1.2;
     margin-top: 20px;
     margin-bottom: 12px;
   }
   
-  /* Paragraphs */
   p {
     max-width: 700px;
   }
   
-  /* Images */
   img {
     border-radius: 8px;
     display: block;
@@ -46,7 +41,6 @@ body {
     height: auto;
   }
   
-  /* Project list */
   ul {
     margin-left: 20px;
     list-style-type: disc;
@@ -56,7 +50,6 @@ body {
     margin-bottom: 6px;
   }
   
-  /* Contact form */
   form {
     max-width: 400px;
     padding: 12px;
