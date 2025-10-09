@@ -18,33 +18,13 @@
     padding: 1em;
   }
   
-  nav {
-    display: flex;
-    border-bottom: 1px solid oklch(80% 3% 200);
-    margin-bottom: 1em;
-  }
+  /* Headings hierarchy + defaults */
+  h1 { font-size: 4em; line-height: 1.1; text-wrap: balance; }   /* ~400% */
+  h2 { font-size: 1.6em; line-height: 1.1; text-wrap: balance; }
+  h3 { font-size: 1.3em; line-height: 1.1; text-wrap: balance; }
+  h4, h5, h6 { line-height: 1.1; text-wrap: balance; }
+  h1, h2, h3, h4, h5, h6 { margin: 20px 0 12px; }
   
-  nav a {
-    flex: 1;
-    text-align: center;
-    color: inherit;
-    text-decoration: none;
-    padding: 0.5em;
-  }
-  
-  nav a.current {
-    border-bottom: 0.4em solid oklch(80% 3% 200);
-    padding-bottom: 0.1em;
-  }
-  
-  nav a:hover {
-    border-bottom: 0.4em solid var(--color-accent);
-    background-color: oklch(from var(--color-accent) 95% 5% h);
-    text-decoration: none;
-    color: inherit;
-  }
-  
-  h1, h2, h3 { line-height: 1.2; margin-top: 20px; margin-bottom: 12px; }
   p { max-width: 700px; }
   
   img {
@@ -57,6 +37,30 @@
   
   ul { margin-left: 20px; list-style-type: disc; }
   li { margin-bottom: 6px; }
+  
+  /* Nav */
+  nav {
+    display: flex;
+    border-bottom: 1px solid oklch(80% 3% 200);
+    margin-bottom: 1em;
+  }
+  nav a {
+    flex: 1;
+    text-align: center;
+    color: inherit;
+    text-decoration: none;
+    padding: 0.5em;
+  }
+  nav a.current {
+    border-bottom: 0.4em solid oklch(80% 3% 200);
+    padding-bottom: 0.1em;
+  }
+  nav a:hover {
+    border-bottom: 0.4em solid var(--color-accent);
+    background-color: oklch(from var(--color-accent) 95% 5% h);
+    text-decoration: none;
+    color: inherit;
+  }
   
   /* Contact form */
   form {
@@ -78,7 +82,7 @@
   }
   button {
     background-color: #0077cc;
-    color: white;
+    color: #fff;
     border: none;
     padding: 8px 16px;
     border-radius: 4px;
@@ -91,7 +95,7 @@
   .projects {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
-    grid-auto-rows: auto; /* for subgrid */
+    grid-auto-rows: auto;  /* for subgrid support */
     gap: 1em;
     align-items: start;
   }
