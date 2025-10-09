@@ -1,13 +1,20 @@
 /* style.css */
 
-body {
+:root {
+    --color-accent: oklch(65% 50% 0);
+    accent-color: var(--color-accent);
+  }
+  
+  body {
     font: 100%/1.5 system-ui, sans-serif;
-    margin: 24px;
     color: #222;
     background-color: #fafafa;
     display: block;
+  
+    /* layout */
     max-width: 100ch;
-    margin-inline: max(1em, (100% - 100ch) / 2);
+    margin: 24px; /* top/bottom = 24px */
+    margin-inline: max(1em, (100% - 100ch) / 2); /* center + side padding */
     padding: 1em;
   }
   
@@ -29,34 +36,16 @@ body {
     border-bottom: 0.4em solid oklch(80% 3% 200);
     padding-bottom: 0.1em;
   }
-
-  
-  
-  nav a:hover {
-    text-decoration: underline;
-    color: #004c99;
-  }
-  
-  :root {
-    --color-accent: oklch(65% 50% 0);
-    accent-color: var(--color-accent);
-  }
   
   nav a:hover {
     border-bottom: 0.4em solid var(--color-accent);
     background-color: oklch(from var(--color-accent) 95% 5% h);
+    text-decoration: none;
+    color: inherit;
   }
   
-
-  h1, h2, h3 {
-    line-height: 1.2;
-    margin-top: 20px;
-    margin-bottom: 12px;
-  }
-  
-  p {
-    max-width: 700px;
-  }
+  h1, h2, h3 { line-height: 1.2; margin-top: 20px; margin-bottom: 12px; }
+  p { max-width: 700px; }
   
   img {
     border-radius: 8px;
@@ -66,37 +55,19 @@ body {
     height: auto;
   }
   
-  ul {
-    margin-left: 20px;
-    list-style-type: disc;
-  }
+  ul { margin-left: 20px; list-style-type: disc; }
+  li { margin-bottom: 6px; }
   
-  li {
-    margin-bottom: 6px;
-  }
-  
+  /* Contact form */
   form {
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 1em;
   }
-  
-  form label {
-    display: contents; 
-  }
-  
-  form button {
-    grid-column: 1 / -1;
-  }  
-  
-  form div {
-    margin-bottom: 12px;
-  }
-  
-  label {
-    font-weight: bold;
-  }
-  
+  form div { margin: 0; }
+  label { font-weight: 600; }
+  form label { display: contents; }
+  input, textarea, button { font: inherit; }
   input, textarea {
     width: 100%;
     padding: 6px;
@@ -105,7 +76,6 @@ body {
     border-radius: 4px;
     box-sizing: border-box;
   }
-  
   button {
     background-color: #0077cc;
     color: white;
@@ -114,22 +84,21 @@ body {
     border-radius: 4px;
     cursor: pointer;
   }
+  button:hover { background-color: #005fa3; }
+  form button { grid-column: 1 / -1; }
   
-  button:hover {
-    background-color: #005fa3;
-  }
-
+  /* Projects grid */
   .projects {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+    grid-auto-rows: auto; /* for subgrid */
     gap: 1em;
+    align-items: start;
   }
-  
   .projects article {
     display: grid;
     grid-template-rows: subgrid;
     grid-row: span 3;
     margin: 0;
   }
-  
   
