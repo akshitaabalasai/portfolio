@@ -1,12 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Akshitaa's Resume</title>
-  <link rel="stylesheet" href="../style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Akshitaa Balasai — Resume</title>
+  <style>
+    :root{ --bg:#fafafa; --text:#111827; --muted:#6b7280; --card:#ffffff; --line:#e5e7eb; --brand:#2563eb; --r:12px; }
+    @media (prefers-color-scheme: dark){ :root{ --bg:#0b0c0f; --text:#e5e7eb; --muted:#9aa3b2; --card:#12151b; --line:#202432; --brand:#6aa8ff; } }
+    *{ box-sizing:border-box }
+    body{ margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; background:var(--bg); color:var(--text); }
+
+    /* simple top bar that won't look flashy */
+    nav{ position:sticky; top:0; display:flex; gap:16px; padding:12px 20px; border-bottom:1px solid var(--line); background:var(--card);} 
+    nav a{ color:var(--text); text-decoration:none; font-weight:500; opacity:.9 }
+    nav a:hover{ opacity:1; text-decoration:underline; }
+
+    .wrap{ max-width:900px; margin:28px auto; padding:0 16px; }
+    h1{ font-size:34px; margin:0 0 10px; }
+    .links{ display:flex; flex-wrap:wrap; gap:10px; margin:6px 0 18px; }
+    .pill{ display:inline-flex; align-items:center; border:1px solid var(--line); background:var(--card); padding:8px 12px; border-radius:999px; font-size:14px; }
+
+    .section{ border:1px solid var(--line); background:var(--card); border-radius:var(--r); padding:16px; margin:14px 0; }
+    .section h2{ margin:0 0 6px; font-size:16px; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; }
+
+    .job{ padding:12px; border-radius:10px; border:1px solid var(--line); margin:10px 0; }
+    .job header{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:6px; margin-bottom:4px; }
+    .role{ font-weight:600; }
+    .meta{ color:var(--muted); font-size:14px; }
+    .job ul{ margin:8px 0 0 18px; }
+
+    .skills{ display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:8px; }
+    .badge{ border:1px solid var(--line); padding:8px 10px; border-radius:10px; background:var(--card); }
+  </style>
 </head>
 <body>
+  <!-- keep the same links you already use -->
   <nav>
     <a href="../index.html">Home</a>
     <a href="../projects/">Projects</a>
@@ -15,91 +43,87 @@
     <a href="https://github.com/akshitaabalasai" target="_blank" rel="noopener">GitHub</a>
   </nav>
 
-  <h1>Resume</h1>
+  <main class="wrap">
+    <h1>Resume</h1>
 
-  <section>
-    <h2>Education</h2>
-    <p>UC San Diego, Bachelors of Science in Data Science</p>
-  </section>
+    <div class="links">
+      <a class="pill" href="mailto:akshitaabalasai@gmail.com">Email</a>
+      <a class="pill" href="https://www.linkedin.com/in/akshitaabalasai" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="pill" href="https://github.com/akshitaabalasai" target="_blank" rel="noopener">GitHub</a>
+    </div>
 
-  <section>
-    <h2>Links</h2>
-    <ul>
-      <li><a href="https://github.com/akshitaabalasai" target="_blank" rel="noopener">GitHub</a></li>
-      <li><a href="mailto:akshitaabalasai@gmail.com">Email</a></li>
-      <li><a href="https://www.linkedin.com/in/akshitaabalasai" target="_blank" rel="noopener">LinkedIn</a></li>
-    </ul>
-  </section>
+    <section class="section">
+      <h2>Education</h2>
+      <div>UC San Diego — B.S. in Data Science</div>
+    </section>
 
-  <section>
-    <h2>Experience</h2>
+    <section class="section">
+      <h2>Experience</h2>
 
-    <article>
-      <header>
-        <h3>Product Management Intern, American Express</h3>
-        <p><time datetime="2024-06">Jun 2025</time> – <time datetime="2024-08">Aug 2025</time> | Phoenix, AZ</p>
-      </header>
-      <ul>
-        <li>Improved Credit API error management dashboard for 50+ errors.</li>
-        <li>Built metrics to track failure modes and resolution speed.</li>
-      </ul>
-    </article>
-
-    <article>
-      <header>
-        <h3>Software Engineering Intern, Google</h3>
-        <p><time datetime="2023-06">May 2025</time> – <time datetime="2023-08">June 2025</time> | Austin, TX</p>
-      </header>
-      <ul>
-        <li>Developed BigQuery validation system; accelerated regex generation with LLM prompts.</li>
-        <li>Created dynamic Power BI data dashboards to measure client usability, improving backlog prioritization by 60%.</li>
-      </ul>
-    </article>
-
-    <article>
+      <article class="job">
         <header>
-          <h3>Technical Sales Intern, Renesas Electronics</h3>
-          <p><time datetime="2023-06">Jan 2025</time> – <time datetime="2023-08">May 2025</time> | San Jose, CA</p>
+          <div class="role">Product Management Intern, American Express</div>
+          <div class="meta">Jun 2025 – Aug 2025 · Phoenix, AZ</div>
         </header>
         <ul>
-          <li>Led $100M+ competitive analysis for client to identify high-potential markets for firewall product expansion strategy.</li>
-          <li>Analyzed $1M+/quarter revenue data for client, uncovering supply chain gaps and leading roadmap prioritization.</li>
+          <li>Improved Credit API error‑management dashboard for 50+ errors.</li>
+          <li>Built metrics to track failure modes and resolution speed.</li>
         </ul>
       </article>
 
-      <article>
+      <article class="job">
         <header>
-          <h3>Software Engineering Fellow, Uber</h3>
-          <p><time datetime="2023-06">Jan 2025</time> – <time datetime="2023-08">May 2025</time> | San Jose, CA</p>
+          <div class="role">Software Engineering Intern, Google</div>
+          <div class="meta">May 2025 – Jun 2025 · Austin, TX</div>
         </header>
         <ul>
-          <li>Participated in technical fellowship and workshop sessions with Uber engineers to enhance programming proficiency.</li>
-          
+          <li>Developed BigQuery validation system; accelerated regex generation with LLM prompts.</li>
+          <li>Created Power BI dashboards for usability metrics, improving backlog prioritization by 60%.</li>
         </ul>
       </article>
 
-      <article>
+      <article class="job">
         <header>
-          <h3>Builder Ambassador, Claude</h3>
-          <p><time datetime="2023-06">Jan 2025</time> – <time datetime="2023-08">May 2025</time> | San Jose, CA</p>
+          <div class="role">Technical Sales Intern, Renesas Electronics</div>
+          <div class="meta">Jan 2025 – May 2025 · San Jose, CA</div>
         </header>
         <ul>
-          <li>Promoted Anthropic’s Claude AI across student and tech communities, driving engagement through social media, workshops, and peer discussions to increase awareness of responsible AI tools and creative applications.</li>
+          <li>Led $100M+ competitive analysis to identify markets for firewall product expansion.</li>
+          <li>Analyzed $1M+/quarter revenue data; surfaced supply‑chain gaps to drive roadmap priorities.</li>
         </ul>
       </article>
 
+      <article class="job">
+        <header>
+          <div class="role">Software Engineering Fellow, Uber</div>
+          <div class="meta">Jan 2025 – May 2025 · San Jose, CA</div>
+        </header>
+        <ul>
+          <li>Completed workshops with Uber engineers; strengthened backend and problem‑solving skills.</li>
+        </ul>
+      </article>
 
-  </section>
+      <article class="job">
+        <header>
+          <div class="role">Claude Builder Ambassador, Anthropic</div>
+          <div class="meta">2025</div>
+        </header>
+        <ul>
+          <li>Promoted Claude via Discord + workshops; shared safe, creative AI use cases.</li>
+        </ul>
+      </article>
 
-  <section>
-    <h2>Skills</h2>
-    <ul>
-      <li>Languages: Python, SQL, HTML, CSS, JS</li>
-      <li>Technologies: Tableau, Power BI, Tableau, Salesforce CRM, GitHub</li>
-      <li>Product: Strategy, Analysis, Process Improvement, Customer Relationship Management</li>
-    </ul>
-  </section>
+    </section>
 
+    <section class="section">
+      <h2>Skills</h2>
+      <div class="skills">
+        <div class="badge"><strong>Languages</strong>: Python, SQL, HTML, CSS, JS</div>
+        <div class="badge"><strong>Data/Tools</strong>: Tableau, Power BI, GitHub, Salesforce</div>
+        <div class="badge"><strong>Product</strong>: Strategy, Analysis, Process Improvement, CRM</div>
+      </div>
+    </section>
 
+  </main>
 </body>
 </html>
