@@ -153,6 +153,32 @@
     section { break-inside: avoid; }
   }
   
+  /* Give space under the nav on content pages */
+main, .resume { 
+    margin-top: 1.25rem;         /* pushes the page down a bit */
+  }
+  
+  /* Tone down & responsively size the big title on Resume */
+  .resume h1 {
+    font-size: clamp(2.25rem, 6vw, 3rem);  /* was 4em */
+    margin-top: 0.5rem;                    /* extra breathing room */
+  }
+  
+  /* Make the section blocks read as one grouped card area */
+  .resume section {
+    margin-block: 1rem;           /* space between sections */
+  }
+  
+  /* Optional: make each job look consistent & comfy */
+  .job {
+    background: #fff;
+    border: 1px solid oklch(90% 2% 200);
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    margin-top: 0.75rem;
+    box-shadow: 0 1px 2px rgba(0,0,0,.04);
+  }
+  
 
 
   
