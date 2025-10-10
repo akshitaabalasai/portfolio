@@ -5,13 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Akshitaa Balasai — Resume</title>
   <style>
+    /* ==== your existing styles (unchanged) ==== */
     :root{ --bg:#fafafa; --text:#111827; --muted:#6b7280; --card:#ffffff; --line:#e5e7eb; --brand:#2563eb; --r:12px; }
     @media (prefers-color-scheme: dark){ :root{ --bg:#0b0c0f; --text:#e5e7eb; --muted:#9aa3b2; --card:#12151b; --line:#202432; --brand:#6aa8ff; } }
     *{ box-sizing:border-box }
     body{ margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; background:var(--bg); color:var(--text); }
-
-    /* simple top bar that won't look flashy */
-
 
     .wrap{ max-width:900px; margin:28px auto; padding:0 16px; }
     h1{ font-size:34px; margin:0 0 10px; }
@@ -29,15 +27,41 @@
 
     .skills{ display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:8px; }
     .badge{ border:1px solid var(--line); padding:8px 10px; border-radius:10px; background:var(--card); }
+
+    /* ==== ONLY add nav bar styling below (matches your requested look) ==== */
+    :root { --color-accent: oklch(65% 50% 0); }
+
+    nav {
+      display: flex;
+      border-bottom: 1px solid oklch(80% 3% 200);
+      margin-bottom: 1em;
+    }
+    nav a {
+      flex: 1;
+      text-align: center;
+      color: inherit;
+      text-decoration: none;
+      padding: 0.5em;
+    }
+    nav a.current {
+      border-bottom: 0.4em solid oklch(80% 3% 200);
+      padding-bottom: 0.1em;
+    }
+    nav a:hover {
+      border-bottom: 0.4em solid var(--color-accent);
+      background-color: oklch(from var(--color-accent) 95% 5% h);
+      text-decoration: none;
+      color: inherit;
+    }
   </style>
 </head>
 <body>
-  <!-- keep the same links you already use -->
+  <!-- just add class="current" on Resume -->
   <nav>
     <a href="../index.html">Home</a>
     <a href="../projects/">Projects</a>
     <a href="../contact/">Contact</a>
-    <a href="../resume/">Resume</a>
+    <a class="current" href="../resume/">Resume</a>
     <a href="https://github.com/akshitaabalasai" target="_blank" rel="noopener">GitHub</a>
   </nav>
 
@@ -64,7 +88,7 @@
           <div class="meta">Jun 2025 – Aug 2025 · Phoenix, AZ</div>
         </header>
         <ul>
-          <li>Improved Credit API error‑management dashboard for 50+ errors.</li>
+          <li>Improved Credit API error-management dashboard for 50+ errors.</li>
           <li>Built metrics to track failure modes and resolution speed.</li>
         </ul>
       </article>
@@ -87,7 +111,7 @@
         </header>
         <ul>
           <li>Led $100M+ competitive analysis to identify markets for firewall product expansion.</li>
-          <li>Analyzed $1M+/quarter revenue data; surfaced supply‑chain gaps to drive roadmap priorities.</li>
+          <li>Analyzed $1M+/quarter revenue data; surfaced supply-chain gaps to drive roadmap priorities.</li>
         </ul>
       </article>
 
@@ -97,14 +121,14 @@
           <div class="meta">Jan 2025 – May 2025 · San Jose, CA</div>
         </header>
         <ul>
-          <li>Completed workshops with Uber engineers; strengthened backend and problem‑solving skills.</li>
+          <li>Completed workshops with Uber engineers; strengthened backend and problem-solving skills.</li>
         </ul>
       </article>
 
       <article class="job">
         <header>
           <div class="role">Claude Builder Ambassador, Anthropic</div>
-          <div class="meta">2025</div>
+          <div class="meta">September 2025 - Present</div>
         </header>
         <ul>
           <li>Promoted Claude via Discord + workshops; shared safe, creative AI use cases.</li>
