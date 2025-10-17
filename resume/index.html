@@ -4,21 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Akshitaa Balasai — Resume</title>
-  <link rel="stylesheet" href="../style.css" />
-  <style>
-    /* Match nav/container width to resume content */
-    :root { --container-width: 900px; }
 
-    /* Base tokens for resume page */
+  <!-- shared site styles -->
+  <link rel="stylesheet" href="../style.css" />
+
+  <style>
+    /* Use the SAME container width as other pages so nav aligns */
+    /* (global --container-width is 100ch in style.css) */
+    /* If you ever want a different site-wide width, change it there once. */
+
+    /* Theme tokens for this page */
     :root{
       --bg:#0b0c0f; --text:#e5e7eb; --muted:#9aa3b2;
       --card:#12151b; --line:#202432; --brand:#6aa8ff; --r:12px;
     }
-    /* OS-based fallback when Theme = Automatic (light machines) */
+    /* When Theme = Automatic and OS is light */
     @media (prefers-color-scheme: light){
       :root{ --bg:#fafafa; --text:#111827; --muted:#6b7280; --card:#ffffff; --line:#e5e7eb; --brand:#2563eb; }
     }
-    /* JS-controlled overrides (from global.js) */
+    /* JS-controlled overrides (from global.js data-theme) */
     :root[data-theme="light"]{
       --bg:#fafafa; --text:#111827; --muted:#6b7280; --card:#ffffff; --line:#e5e7eb; --brand:#2563eb;
     }
@@ -26,35 +30,58 @@
       --bg:#0b0c0f; --text:#e5e7eb; --muted:#9aa3b2; --card:#12151b; --line:#202432; --brand:#6aa8ff;
     }
 
-    *{ box-sizing:border-box }
+    /* Let the global body spacing/centering apply; only set colors */
     body{
-      margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       background:var(--bg);
       color:var(--text);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
     }
 
-    .wrap{ max-width:900px; margin:28px auto; padding:0 16px; }
+    /* Make this page’s content wrapper use the same width variable as nav */
+    .wrap{
+      max-width: var(--container-width);   /* <- matches nav’s .nav-inner */
+      margin:28px auto;
+      padding:0 16px;
+    }
+
     h1{ font-size:34px; margin:0 0 10px; }
 
-    .links{ display:flex; flex-wrap:wrap; gap:10px; margin:6px 0 18px; }
-    .pill{ display:inline-flex; align-items:center; border:1px solid var(--line); background:var(--card); padding:8px 12px; border-radius:999px; font-size:14px; }
+    .links{
+      display:flex; flex-wrap:wrap; gap:10px; margin:6px 0 18px;
+    }
+    .pill{
+      display:inline-flex; align-items:center;
+      border:1px solid var(--line); background:var(--card);
+      padding:8px 12px; border-radius:999px; font-size:14px;
+    }
 
-    /* Sections/cards honor theme */
-    .section{ border:1px solid var(--line); background:var(--card); border-radius:var(--r); padding:16px; margin:14px 0; }
-    .section h2{ margin:0 0 6px; font-size:16px; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; }
+    /* Cards honor theme (override global .job{background:#fff}) */
+    .section{
+      border:1px solid var(--line); background:var(--card);
+      border-radius:var(--r); padding:16px; margin:14px 0;
+    }
+    .section h2{
+      margin:0 0 6px; font-size:16px; color:var(--muted);
+      text-transform:uppercase; letter-spacing:.06em;
+    }
 
-    .job{ padding:12px; border-radius:10px; border:1px solid var(--line); margin:10px 0;
-          background:var(--card); box-shadow: 0 1px 2px rgba(0,0,0,.25); }
+    .job{
+      padding:12px; border-radius:10px;
+      border:1px solid var(--line); margin:10px 0;
+      background:var(--card);                 /* <- key override */
+      box-shadow: 0 1px 2px rgba(0,0,0,.25);
+    }
     .job header{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:6px; margin-bottom:4px; }
     .role{ font-weight:600; }
     .meta{ color:var(--muted); font-size:14px; }
     .job ul{ margin:8px 0 0 18px; }
 
     .skills{ display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:8px; }
-    .badge{ border:1px solid var(--line); padding:8px 10px; border-radius:10px; background:var(--card); }
+    .badge{
+      border:1px solid var(--line); padding:8px 10px; border-radius:10px; background:var(--card);
+    }
 
-    /* Make links inherit theme color */
+    /* Links inherit theme color */
     a{ color:inherit; }
   </style>
 </head>
@@ -140,6 +167,7 @@
     </section>
   </main>
 
+  <!-- nav + theme switch are injected by global.js -->
   <script type="module" src="../global.js"></script>
 </body>
 </html>
