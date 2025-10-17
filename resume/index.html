@@ -6,49 +6,91 @@
   <title>Akshitaa Balasai — Resume</title>
   <link rel="stylesheet" href="../style.css" />
   <style>
-    /* Base tokens for resume page */
-    :root{
-      --bg:#fafafa; --text:#111827; --muted:#6b7280;
-      --card:#ffffff; --line:#e5e7eb; --brand:#2563eb; --r:12px;
-    }
-    /* OS-based fallback (when Theme = Automatic) */
-    @media (prefers-color-scheme: dark){
-      :root{ --bg:#0b0c0f; --text:#e5e7eb; --muted:#9aa3b2; --card:#12151b; --line:#202432; --brand:#6aa8ff; }
-    }
-    /* JS-controlled overrides: Theme = Light/Dark */
-    :root[data-theme="light"]{
-      --bg:#fafafa; --text:#111827; --muted:#6b7280; --card:#ffffff; --line:#e5e7eb; --brand:#2563eb;
-    }
-    :root[data-theme="dark"]{
-      --bg:#0b0c0f; --text:#e5e7eb; --muted:#9aa3b2; --card:#12151b; --line:#202432; --brand:#6aa8ff;
-    }
-
-    *{ box-sizing:border-box }
-    body{ margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-          background:var(--bg); color:var(--text); }
-
-    .wrap{ max-width:900px; margin:28px auto; padding:0 16px; }
-    h1{ font-size:34px; margin:0 0 10px; }
-    .links{ display:flex; flex-wrap:wrap; gap:10px; margin:6px 0 18px; }
-    .pill{ display:inline-flex; align-items:center; border:1px solid var(--line); background:var(--card);
-           padding:8px 12px; border-radius:999px; font-size:14px; }
-
-    .section{ border:1px solid var(--line); background:var(--card); border-radius:var(--r); padding:16px; margin:14px 0; }
-    .section h2{ margin:0 0 6px; font-size:16px; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; }
-
-    .job{ padding:12px; border-radius:10px; border:1px solid var(--line); margin:10px 0; }
-    .job header{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:6px; margin-bottom:4px; }
-    .role{ font-weight:600; }
-    .meta{ color:var(--muted); font-size:14px; }
-    .job ul{ margin:8px 0 0 18px; }
-
-    .skills{ display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:8px; }
-    .badge{ border:1px solid var(--line); padding:8px 10px; border-radius:10px; background:var(--card); }
-
-    /* Make this page's nav border match global dark-mode style */
-    nav{ --border-color: oklch(50% 10% 200 / 40%); border-bottom:1px solid var(--border-color); }
-    nav a.current{ border-bottom:.4em solid var(--border-color); }
-    nav a:hover{ background-color: color-mix(in oklch, var(--color-accent), canvas 85%); }
+  
+      /* Base tokens for resume page */
+      :root{
+        --bg:#0b0c0f; --text:#e5e7eb; --muted:#9aa3b2;
+        --card:#12151b; --line:#202432; --brand:#6aa8ff; --r:12px;
+      }
+      /* OS-based fallback when Theme = Automatic (light machines) */
+      @media (prefers-color-scheme: light){
+        :root{ --bg:#fafafa; --text:#111827; --muted:#6b7280; --card:#ffffff; --line:#e5e7eb; --brand:#2563eb; }
+      }
+      /* JS-controlled overrides (from global.js) */
+      :root[data-theme="light"]{
+        --bg:#fafafa; --text:#111827; --muted:#6b7280; --card:#ffffff; --line:#e5e7eb; --brand:#2563eb;
+      }
+      :root[data-theme="dark"]{
+        --bg:#0b0c0f; --text:#e5e7eb; --muted:#9aa3b2; --card:#12151b; --line:#202432; --brand:#6aa8ff;
+      }
+    
+      *{ box-sizing:border-box }
+      body{
+        margin:0;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+        background:var(--bg);
+        color:var(--text);
+      }
+    
+      /* FIX 1: center the injected nav to the same width as .wrap */
+      body > nav{
+        --border-color: oklch(50% 10% 200 / 40%);
+        max-width:900px;
+        margin: 0 auto 1rem;
+        padding: 0 16px;
+        border-bottom:1px solid var(--border-color);
+      }
+      body > nav a.current{ border-bottom:.4em solid var(--border-color); }
+      body > nav a:hover{ background-color: color-mix(in oklch, var(--color-accent), canvas 85%); }
+    
+      .wrap{ max-width:900px; margin:28px auto; padding:0 16px; }
+      h1{ font-size:34px; margin:0 0 10px; }
+    
+      .links{ display:flex; flex-wrap:wrap; gap:10px; margin:6px 0 18px; }
+      .pill{
+        display:inline-flex; align-items:center;
+        border:1px solid var(--line); background:var(--card);
+        padding:8px 12px; border-radius:999px; font-size:14px;
+      }
+    
+      /* FIX 2: make cards honor dark mode (override global .job background:#fff) */
+      .section{
+        border:1px solid var(--line); background:var(--card);
+        border-radius:var(--r); padding:16px; margin:14px 0;
+      }
+      .section h2{ margin:0 0 6px; font-size:16px; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; }
+    
+      .job{
+        padding:12px; border-radius:10px;
+        border:1px solid var(--line);
+        background:var(--card);              /* override global white */
+        box-shadow: 0 1px 2px rgba(0,0,0,.25);
+        margin:10px 0;
+      }
+      .job header{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:6px; margin-bottom:4px; }
+      .role{ font-weight:600; }
+      .meta{ color:var(--muted); font-size:14px; }
+      .job ul{ margin:8px 0 0 18px; }
+    
+      .skills{ display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:8px; }
+      .badge{
+        border:1px solid var(--line);
+        padding:8px 10px; border-radius:10px;
+        background:var(--card);              /* ensure badges flip too */
+      }
+    
+      /* (optional) make the section headers’ row a darker strip for contrast */
+      .section:first-of-type,
+      .section { /* this targets the header row container on your page */
+        backdrop-filter: saturate(120%);
+      }
+    
+      /* Make links inherit theme color */
+      a{ color:inherit; }
+    
+      /* Theme switch label is already absolutely positioned from global.css */
+    </style>
+    
   </style>
 </head>
 <body>
