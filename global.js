@@ -1,30 +1,24 @@
-// ---------- Boot & helpers ----------
 console.log("IT’S ALIVE!");
 
 function $$(selector, context = document) {
   return Array.from(context.querySelectorAll(selector));
 }
 
-// Normalize paths so "/resume" and "/resume/index.html" match
 function normalize(pathname) {
   return pathname.replace(/index\.html$/i, "").replace(/\/+$/, "/") || "/";
 }
 
-// Compute a base path that works on localhost and on GitHub Pages
 function computeBasePath() {
   const host = location.hostname;
 
-  // Local dev (Live Server)
   if (host === "localhost" || host === "127.0.0.1") return "/";
 
-  // GitHub Pages project sites: https://<user>.github.io/<repo>/
   const seg = location.pathname.split("/").filter(Boolean)[0] || "";
   return seg ? `/${seg}/` : "/";
 }
 
 const BASE_PATH = computeBasePath();
 
-// ---------- Step 3: Auto navigation (with centering container) ----------
 const pages = [
   { url: "",          title: "Home" },
   { url: "projects/", title: "Projects" },
@@ -33,7 +27,6 @@ const pages = [
   { url: "https://github.com/akshitaabalasai", title: "GitHub", external: true },
 ];
 
-// Remove any hard-coded nav and inject a fresh one at top of <body>
 document.querySelector("nav")?.remove();
 const nav = document.createElement("nav");
 const navInner = document.createElement("div");
@@ -53,13 +46,11 @@ for (const p of pages) {
 
   const aURL = new URL(a.href);
 
-  // Highlight current page (Step 2)
   if (aURL.host === hereHost && normalize(aURL.pathname) === herePath) {
     a.classList.add("current");
     a.setAttribute("aria-current", "page");
   }
 
-  // External links in new tab
   if (p.external || aURL.host !== hereHost) {
     a.target = "_blank";
     a.rel = "noopener";
@@ -68,7 +59,6 @@ for (const p of pages) {
   navInner.append(a);
 }
 
-// ---------- Step 4: Dark mode switch (Automatic / Light / Dark) ----------
 document.body.insertAdjacentHTML(
   "afterbegin",
   `
@@ -86,10 +76,8 @@ document.body.insertAdjacentHTML(
 const select = document.querySelector("#theme-select");
 
 function setColorScheme(value) {
-  // Required by lab: set CSS property on <html>
   document.documentElement.style.setProperty("color-scheme", value);
 
-  // Also control a data attribute so page-specific CSS can react
   if (value === "light" || value === "dark") {
     document.documentElement.setAttribute("data-theme", value);
   } else {
@@ -101,7 +89,6 @@ const saved = localStorage.getItem("colorScheme") ?? "light dark";
 setColorScheme(saved);
 select.value = saved;
 
-// Optional label: show OS mode when Automatic
 try {
   const prefersDark = matchMedia("(prefers-color-scheme: dark)").matches;
   if (select.value === "light dark") {
@@ -114,3 +101,33 @@ select.addEventListener("input", (e) => {
   setColorScheme(val);
   localStorage.setItem("colorScheme", val);
 });
+
+(() => {
+    const form = document.querySelector("#contact-form");
+    const link = document.querySelector("#send-link");
+    const statusEl = document.querySelector("#send-status");
+    if (!form || !link) return;
+  
+    function buildMailto() {
+      const to = form.dataset.to || "akshitaabalasai@gmail.com";
+      const subject = encodeURIComponent((form.querySelector('[name="subject"]')?.value || "").replace(/\r\n?/g, "\n"));
+      const body    = encodeURIComponent((form.querySelector('[name="body"]')?.value || "").replace(/\r\n?/g, "\n"));
+  
+      const params = [];
+      if (subject) params.push(`subject=${subject}`);
+      if (body)    params.push(`body=${body}`);
+  
+      return `mailto:${to}${params.length ? "?" + params.join("&") : ""}`;
+    }
+  
+    link.addEventListener("click", () => {
+      const url = buildMailto();
+      link.setAttribute("href", url);
+      if (statusEl) statusEl.hidden = false;
+      console.log("[contact] Opening:", url);
+    });
+  })();
+  
+  
+  
+  

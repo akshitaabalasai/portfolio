@@ -1,43 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Akshitaa</title>
-  <link rel="stylesheet" href="../style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact – Akshitaa Balasai</title>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    form.contact {
+      max-width: 700px;
+      margin-top: 1rem;
+    }
+    form.contact div {
+      margin-bottom: 1rem;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font: inherit;
+      box-sizing: border-box;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      font: inherit;
+      font-weight: 500;
+      transition: background-color 0.2s ease;
+      width: auto;
+    }
+    .btn:hover {
+      background-color: #005fa3;
+    }
+    .btn:active {
+      background-color: #004b80;
+    }
+
+    #send-status {
+      font-size: 0.85rem;
+      margin-top: 0.75rem;
+      opacity: 0.8;
+    }
+    #send-status[hidden] {
+      display: none;
+    }
+  </style>
 </head>
 <body>
-  <nav>
-    <a href="../index.html">Home</a>
-    <a href="../projects/">Projects</a>
-    <a href="../contact/">Contact</a>
-    <a href="../resume/">Resume</a>
-    <a href="https://github.com/akshitaabalasai" target="_blank" rel="noopener">GitHub</a>
-  </nav>
-
   <h1>Contact Me</h1>
 
-  <form action="mailto:akshitaabalasai@gmail.com" method="POST" enctype="text/plain">
+  <form id="contact-form" class="contact" data-to="akshitaabalasai@gmail.com">
     <div>
-      <label for="email">Email:</label><br>
-      <input type="email" id="email" name="email" value="xyz@gmail.com" required>
+      <label>
+        Email:
+        <input value="akshitaabalasai@gmail.com" readonly />
+      </label>
     </div>
-  
+
     <div>
-      <label for="subject">Subject:</label><br>
-      <input id="subject" name="subject" value="Insert">
+      <label>
+        Subject:
+        <input name="subject" required placeholder="What’s up?" />
+      </label>
     </div>
-  
+
     <div>
-      <label for="body">Message:</label><br>
-      <textarea id="body" name="body" rows="5" cols="40">Test</textarea>
+      <label>
+        Message:
+        <textarea name="body" rows="5" required placeholder="Write your message here…"></textarea>
+      </label>
     </div>
-  
+
     <div>
-      <button type="submit">Send</button>
+      <a id="send-link" class="btn" href="#" target="_blank" rel="noopener">Send</a>
     </div>
+
+    <p id="send-status" hidden>Opening your email app…</p>
   </form>
-  
+
   <script type="module" src="../global.js"></script>
 </body>
 </html>
