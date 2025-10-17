@@ -17,15 +17,14 @@ function computeBasePath() {
   // Local dev (Live Server)
   if (host === "localhost" || host === "127.0.0.1") return "/";
 
-  // GitHub Pages (project site): https://<user>.github.io/<repo>/
-  // Use the first path segment as repo name
+  // GitHub Pages project sites: https://<user>.github.io/<repo>/
   const seg = location.pathname.split("/").filter(Boolean)[0] || "";
   return seg ? `/${seg}/` : "/";
 }
 
 const BASE_PATH = computeBasePath();
 
-// ---------- Step 3: Auto navigation ----------
+// ---------- Step 3: Auto navigation (with centering container) ----------
 const pages = [
   { url: "",          title: "Home" },
   { url: "projects/", title: "Projects" },
@@ -34,16 +33,18 @@ const pages = [
   { url: "https://github.com/akshitaabalasai", title: "GitHub", external: true },
 ];
 
-// Remove any hard-coded nav (if left) and inject a fresh one at top of <body>
+// Remove any hard-coded nav and inject a fresh one at top of <body>
 document.querySelector("nav")?.remove();
 const nav = document.createElement("nav");
+const navInner = document.createElement("div");
+navInner.className = "nav-inner";
+nav.append(navInner);
 document.body.prepend(nav);
 
 const hereHost = location.host;
 const herePath = normalize(location.pathname);
 
 for (const p of pages) {
-  // Prefix internal links with BASE_PATH
   const href = /^https?:\/\//i.test(p.url) ? p.url : BASE_PATH + p.url;
 
   const a = document.createElement("a");
@@ -52,7 +53,7 @@ for (const p of pages) {
 
   const aURL = new URL(a.href);
 
-  // Highlight current page (Step 2 logic)
+  // Highlight current page (Step 2)
   if (aURL.host === hereHost && normalize(aURL.pathname) === herePath) {
     a.classList.add("current");
     a.setAttribute("aria-current", "page");
@@ -64,7 +65,7 @@ for (const p of pages) {
     a.rel = "noopener";
   }
 
-  nav.append(a);
+  navInner.append(a);
 }
 
 // ---------- Step 4: Dark mode switch (Automatic / Light / Dark) ----------
@@ -100,7 +101,7 @@ const saved = localStorage.getItem("colorScheme") ?? "light dark";
 setColorScheme(saved);
 select.value = saved;
 
-// Optional: show current OS scheme for the Automatic option
+// Optional label: show OS mode when Automatic
 try {
   const prefersDark = matchMedia("(prefers-color-scheme: dark)").matches;
   if (select.value === "light dark") {

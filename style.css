@@ -1,8 +1,7 @@
-/* style.css */
-
 /* -------- Base tokens -------- */
 :root {
   --color-accent: oklch(65% 50% 0);
+  --container-width: 100ch;   /* default page width for centering */
   accent-color: var(--color-accent);
 }
 
@@ -20,9 +19,9 @@ body {
   background: inherit;
   display: block;
 
-  max-width: 100ch;
+  max-width: var(--container-width);
   margin: 24px;
-  margin-inline: max(1em, (100% - 100ch) / 2);
+  margin-inline: max(1em, (100% - var(--container-width)) / 2);
   padding: 1em;
 }
 
@@ -45,27 +44,31 @@ img {
 ul { margin-left: 20px; list-style-type: disc; }
 li { margin-bottom: 6px; }
 
-/* ---------- Nav ---------- */
+/* ---------- Nav (shared; centered via .nav-inner) ---------- */
 nav {
-  --border-color: oklch(50% 10% 200 / 40%); /* adapts better in dark */
-  display: flex;
+  --border-color: oklch(50% 10% 200 / 40%);
   border-bottom: 1px solid var(--border-color);
   margin-bottom: 1em;
 }
-nav a {
+.nav-inner {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex;
+}
+.nav-inner a {
   flex: 1;
   text-align: center;
   color: inherit;
   text-decoration: none;
   padding: 0.5em;
 }
-nav a.current {
+.nav-inner a.current {
   border-bottom: 0.4em solid var(--border-color);
   padding-bottom: 0.1em;
 }
-nav a:hover {
+.nav-inner a:hover {
   border-bottom: 0.4em solid var(--color-accent);
-  /* hover fill that adapts to scheme */
   background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
   text-decoration: none;
   color: inherit;
@@ -115,65 +118,22 @@ form button { grid-column: 1 / -1; }
   margin: 0;
 }
 
-/* ---------- Resume page layout ---------- */
+/* ---------- Resume page helpers (global defaults) ---------- */
 .resume {
   max-width: 80ch;
   margin-inline: auto;
 }
-
-/* Section dividers */
-.resume section {
-  padding-block: 0.75rem;
-  border-top: 1px solid oklch(90% 2% 200);
-}
-.resume section:first-of-type { border-top: none; }
-
-/* Inline list for Links */
-ul.inline { list-style: none; padding: 0; margin: 0.5rem 0 0; display: flex; gap: 0.75rem; }
-ul.inline li { margin: 0; }
-.resume a { color: inherit; text-decoration-color: var(--color-accent); text-underline-offset: 0.15em; }
-
-/* Job header: title left, dates/right meta right */
-.job-head {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: baseline;
-  gap: 0.5rem 1rem;
-}
-.job-head h3 { margin: 0; font-size: 1.15em; font-weight: 650; }
-.job-head p { margin: 0; color: oklch(45% 0 200); white-space: nowrap; font-variant-numeric: tabular-nums; }
-
-/* Bullets spacing within resume sections */
-.resume ul { margin: 0.5rem 0 0.25rem 1.1rem; }
-.resume li { margin-bottom: 0.35rem; }
-
-/* Mobile: stack job header */
-@media (max-width: 640px) {
-  .job-head { grid-template-columns: 1fr; }
-  .job-head p { white-space: normal; }
-}
-
-/* Print-friendly CV */
-@media print {
-  body { background: #fff; }
-  nav { display: none; }
-  .resume { max-width: none; margin: 0; padding: 0; }
-  a { text-decoration: none; color: inherit; }
-  section { break-inside: avoid; }
-}
-
-/* Space under nav on content pages */
-main, .resume {
-  margin-top: 1.25rem;
-}
-
-/* Resume title sizing */
 .resume h1 {
   font-size: clamp(2.25rem, 6vw, 3rem);
   margin-top: 0.5rem;
 }
 
-/* Job card look */
+/* Give space under the nav on content pages */
+main, .resume { 
+  margin-top: 1.25rem;
+}
+
+/* Job card look (global baseline; resume overrides will replace bg) */
 .job {
   background: #fff;
   border: 1px solid oklch(90% 2% 200);
