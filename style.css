@@ -7,29 +7,25 @@
 }
 
 /* ---------- Step 4.1: automatic dark mode ---------- */
-/* Let the browser switch light/dark and use system canvas colors */
 html {
-  color-scheme: light dark;       /* REQUIRED for the lab */
-  background: canvas;             /* adapts with scheme */
-  color: canvastext;              /* adapts with scheme */
+  color-scheme: light dark;   /* allow light/dark */
+  background: canvas;         /* system bg that adapts */
+  color: canvastext;          /* system text that adapts */
 }
 
 /* ---------- Layout / Typography ---------- */
 body {
   font: 100%/1.5 system-ui, sans-serif;
-  /* inherit colors from <html> so dark mode works */
   color: inherit;
   background: inherit;
   display: block;
 
-  /* layout */
   max-width: 100ch;
   margin: 24px;
   margin-inline: max(1em, (100% - 100ch) / 2);
   padding: 1em;
 }
 
-/* Headings hierarchy + defaults */
 h1 { font-size: 4em; line-height: 1.1; text-wrap: balance; }
 h2 { font-size: 1.6em; line-height: 1.1; text-wrap: balance; }
 h3 { font-size: 1.3em; line-height: 1.1; text-wrap: balance; }
@@ -50,9 +46,8 @@ ul { margin-left: 20px; list-style-type: disc; }
 li { margin-bottom: 6px; }
 
 /* ---------- Nav ---------- */
-/* Step 4.1: use a border color that works in both schemes */
 nav {
-  --border-color: oklch(50% 10% 200 / 40%);  /* was oklch(80% 3% 200) */
+  --border-color: oklch(50% 10% 200 / 40%); /* adapts better in dark */
   display: flex;
   border-bottom: 1px solid var(--border-color);
   margin-bottom: 1em;
@@ -68,9 +63,9 @@ nav a.current {
   border-bottom: 0.4em solid var(--border-color);
   padding-bottom: 0.1em;
 }
-/* Step 4.1 (optional hover fix): mix with canvas so it adapts in dark mode */
 nav a:hover {
   border-bottom: 0.4em solid var(--color-accent);
+  /* hover fill that adapts to scheme */
   background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
   text-decoration: none;
   color: inherit;
@@ -167,18 +162,18 @@ ul.inline li { margin: 0; }
   section { break-inside: avoid; }
 }
 
-/* Give space under the nav on content pages */
+/* Space under nav on content pages */
 main, .resume {
   margin-top: 1.25rem;
 }
 
-/* Tone down & responsively size the big title on Resume */
+/* Resume title sizing */
 .resume h1 {
   font-size: clamp(2.25rem, 6vw, 3rem);
   margin-top: 0.5rem;
 }
 
-/* Make each job look consistent & comfy */
+/* Job card look */
 .job {
   background: #fff;
   border: 1px solid oklch(90% 2% 200);
@@ -188,7 +183,7 @@ main, .resume {
   box-shadow: 0 1px 2px rgba(0,0,0,.04);
 }
 
-/* ---------- Step 4.3: place the dark-mode switch UI ---------- */
+/* ---------- Step 4.3: theme switch positioning ---------- */
 label.color-scheme {
   position: absolute;
   top: 1rem;
