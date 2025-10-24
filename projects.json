@@ -1,0 +1,75 @@
+[
+    {
+      "title": "The Evolution of Virtual & Augmented Reality",
+      "year": "2024",
+      "image": "research.png",
+      "description": "Published research with Niantic Labs’ co-founder on VR/AR systems to treat disabilities (2k+ downloads)."
+    },
+    {
+      "title": "Hydro Sense",
+      "year": "2024",
+      "image": "hydro.png",
+      "description": "Led 16 engineers to build IoT sensors, React dashboards, and Firebase storage to analyze water usage for a local community garden."
+    },
+    {
+      "title": "HeartStrings",
+      "year": "2024",
+      "image": "hsproj.png",
+      "description": "AI-based journaling app to analyze user emotions, track mood in a calendar, and recommend music. Designed and built for Berkeley AI Hacks 2024."
+    },
+    {
+      "title": "Davis Community Meals and Housing Inventory System",
+      "year": "2024",
+      "image": "dcmh1.png",
+      "description": "HackDavis 2024 project: inventory system for a homelessness shelter non-profit, plus a donations landing page for the public."
+    },
+    {
+      "title": "Covid-19 Economic Analysis and Predictive Modeling",
+      "year": "2023",
+      "image": "covid19proj.png",
+      "description": "Built a data board using Python to analyze and forecast unemployment rates during the pandemic."
+    },
+    {
+      "title": "CollegeConnect",
+      "year": "2023",
+      "image": "ucsd.png",
+      "description": "Centralized application tracking system with a built-in database for high school applicants to track their applications."
+    },
+    {
+      "title": "Hyperparameter Optimization Testing",
+      "year": "2023",
+      "image": "neuralnetworks.png",
+      "description": "Explored automated hyperparameter tuning techniques to improve model accuracy, reduce overfitting, and streamline training time."
+    },
+    {
+      "title": "Healthy Food Comparison",
+      "year": "2022",
+      "image": "food.jpg",
+      "description": "Built a nutritional comparison tool to analyze grocery items and surface balanced, cost-effective meal choices."
+    },
+    {
+      "title": "Top 50 Songs on Spotify",
+      "year": "2022",
+      "image": "spotify.png",
+      "description": "Analyzed Spotify Top 50 tracks using audio features (danceability, tempo, valence) to uncover trends and listener behavior."
+    },
+    {
+      "title": "Vegetation Management Worker Hour Analysis",
+      "year": "2022",
+      "image": "vegm.jpeg",
+      "description": "Studied work-hour allocation for vegetation management crews to improve labor planning and wildfire-mitigation efficiency."
+    },
+    {
+      "title": "Harry Potter Character Analysis",
+      "year": "2021",
+      "image": "harrypotter.jpg",
+      "description": "Applied text mining to extract character networks and sentiment shifts across the series."
+    },
+    {
+      "title": "Python Number Guesser",
+      "year": "2021",
+      "image": "numberguess.jpg",
+      "description": "Interactive guessing game challenging users to find a random number using logical feedback and hints."
+    }
+  ]
+  
