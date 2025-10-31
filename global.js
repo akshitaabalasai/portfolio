@@ -129,7 +129,7 @@ select.addEventListener("input", (e) => {
   });
 })();
 
-// ---------- Lab 4 helpers (exports) ----------
+// ---------- Helpers for labs ----------
 
 // Fetch JSON with error handling
 export async function fetchJSON(url) {
@@ -144,6 +144,8 @@ export async function fetchJSON(url) {
 }
 
 // Render an array of projects into a container with optional heading level
+// Lab 5 addition: show a Year line beneath the description.
+// Render an array of projects into a container with optional heading level
 export function renderProjects(projects, containerElement, headingLevel = 'h2') {
   if (!containerElement) return;
 
@@ -156,26 +158,29 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
 
   containerElement.innerHTML = '';
 
-  for (const project of projects) {
+  for (const p of projects) {
     const article = document.createElement('article');
-    const title = project?.title ?? 'Untitled Project';
-    const desc  = project?.description ?? '';
+    const title = p?.title ?? 'Untitled Project';
+    const desc  = p?.description ?? '';
 
-    // ✅ images are filenames at repo root (e.g., "research.png")
-    // build a root-absolute URL that works from / and /projects/ and on GH Pages
-    const raw = (project?.image ?? '').trim();
+    // images are filenames at repo root (e.g., "research.png")
+    const raw = (p?.image ?? '').trim();
     const imgSrc = raw
       ? (raw.startsWith('http') ? raw : `${BASE_PATH}${raw.replace(/^\/+/, '')}`)
       : 'https://dsc106.com/labs/lab02/images/empty.svg';
 
+    // Build card (NO inline styles here)
     article.innerHTML = `
       <${validHeading}>${title}</${validHeading}>
       <img src="${imgSrc}" alt="${title}">
-      <p>${desc}</p>
+      <span class="project-year">Year: ${p?.year ?? ''}</span>
+      <p class="project-desc">${desc}</p>
     `;
+
     containerElement.appendChild(article);
   }
 }
+
 
 export async function fetchGitHubData(username) {
   if (!username) return null;

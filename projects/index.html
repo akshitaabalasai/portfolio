@@ -8,21 +8,39 @@
 </head>
 <body>
   <nav>
-    <a href="../index.html">Home</a>
-    <a href="../projects/">Projects</a>
-    <a href="../contact/">Contact</a>
-    <a href="../resume/">Resume</a>
-    <a href="https://github.com/akshitaabalasai" target="_blank" rel="noopener">GitHub</a>
+    <div class="nav-inner">
+      <a href="../index.html">Home</a>
+      <a href="../projects/" class="current" aria-current="page">Projects</a>
+      <a href="../contact/">Contact</a>
+      <a href="../resume/">Resume</a>
+      <a href="https://github.com/akshitaabalasai" target="_blank" rel="noopener">GitHub</a>
+    </div>
   </nav>
 
-  <h1>Projects</h1>
+  <h1 class="projects-title">Projects</h1>
 
-  <div class="projects">
+  <div class="projects-controls">
+    <label for="q">Search projects</label>
+    <input id="q" type="search" inputmode="search"
+           placeholder="Search projects" autocomplete="off" />
+    <output id="count" aria-live="polite"></output>
   </div>
+
+  <section class="viz" aria-label="Projects by year">
+    <svg
+      id="projects-pie-plot"
+      viewBox="-50 -50 100 100"
+      width="340"
+      height="340"
+      role="img"
+      aria-label="Projects by year (click a slice to filter)">
+    </svg>
+    <ul id="legend" class="legend" aria-label="Year legend"></ul>
+  </section>
+
+  <div class="projects"></div>
 
   <script src="../global.js" type="module" defer></script>
   <script src="projects.js" type="module"></script>
-
-
 </body>
 </html>
