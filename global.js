@@ -1,6 +1,5 @@
 console.log("IT’S ALIVE!");
 
-// ---------- helpers used by nav/routing ----------
 function $$(selector, context = document) {
   return Array.from(context.querySelectorAll(selector));
 }
@@ -10,15 +9,12 @@ function normalize(pathname) {
 function computeBasePath() {
   const host = location.hostname;
   if (host === "localhost" || host === "127.0.0.1") return "/";
-  // for GitHub Pages project sites: https://<user>.github.io/<repo>/
   const seg = location.pathname.split("/").filter(Boolean)[0] || "";
   return seg ? `/${seg}/` : "/";
 }
 
-// ✅ export so other modules can rely on it
 export const BASE_PATH = computeBasePath();
 
-// ---------- nav ----------
 const pages = [
   { url: "",          title: "Home" },
   { url: "projects/", title: "Projects" },
@@ -59,7 +55,6 @@ for (const p of pages) {
   navInner.append(a);
 }
 
-// ---------- theme switcher ----------
 document.body.insertAdjacentHTML(
   "afterbegin",
   `
@@ -81,7 +76,7 @@ function setColorScheme(value) {
   if (value === "light" || value === "dark") {
     document.documentElement.setAttribute("data-theme", value);
   } else {
-    document.documentElement.removeAttribute("data-theme"); // Automatic
+    document.documentElement.removeAttribute("data-theme"); 
   }
 }
 
@@ -102,7 +97,6 @@ select.addEventListener("input", (e) => {
   localStorage.setItem("colorScheme", val);
 });
 
-// ---------- contact mailto ----------
 (() => {
   const form = document.querySelector("#contact-form");
   const link = document.querySelector("#send-link");
@@ -129,9 +123,7 @@ select.addEventListener("input", (e) => {
   });
 })();
 
-// ---------- Helpers for labs ----------
 
-// Fetch JSON with error handling
 export async function fetchJSON(url) {
   try {
     const res = await fetch(url);
@@ -143,9 +135,7 @@ export async function fetchJSON(url) {
   }
 }
 
-// Render an array of projects into a container with optional heading level
-// Lab 5 addition: show a Year line beneath the description.
-// Render an array of projects into a container with optional heading level
+
 export function renderProjects(projects, containerElement, headingLevel = 'h2') {
   if (!containerElement) return;
 
@@ -163,13 +153,11 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
     const title = p?.title ?? 'Untitled Project';
     const desc  = p?.description ?? '';
 
-    // images are filenames at repo root (e.g., "research.png")
     const raw = (p?.image ?? '').trim();
     const imgSrc = raw
       ? (raw.startsWith('http') ? raw : `${BASE_PATH}${raw.replace(/^\/+/, '')}`)
       : 'https://dsc106.com/labs/lab02/images/empty.svg';
 
-    // Build card (NO inline styles here)
     article.innerHTML = `
       <${validHeading}>${title}</${validHeading}>
       <img src="${imgSrc}" alt="${title}">
