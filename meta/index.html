@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Meta – Code stats</title>
+
+  <!-- shared site styles if you have them -->
+  <link rel="stylesheet" href="../style.css" />
+  <!-- page-specific styles -->
+  <link rel="stylesheet" href="./meta.css" />
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html">Home</a>
+    <a href="../projects/">Projects</a>
+    <a href="../contact/">Contact</a>
+    <a href="../resume/">Resume</a>
+    <a href="https://github.com/akshitaabalasai" target="_blank">GitHub</a>
+    <a href="./" class="active">Meta</a>
+  </div>
+</nav>
+
+
+  <main class="page">
+    <h1>Meta</h1>
+    <p class="note">Stats and interactives computed from <code>meta/loc.csv</code>.</p>
+
+    <!-- Summary tiles -->
+    <section id="stats" aria-label="Summary stats">
+      <div class="stats">
+        <div class="tile">
+          <div class="label">Total LOC</div>
+          <div id="stat-total" class="value">–</div>
+        </div>
+        <div class="tile">
+          <div class="label">Commits</div>
+          <div id="stat-commits" class="value">–</div>
+        </div>
+        <div class="tile">
+          <div class="label">Files</div>
+          <div id="stat-files" class="value">–</div>
+        </div>
+        <div class="tile">
+          <div class="label">Longest line</div>
+          <div id="stat-longest" class="value">–</div>
+        </div>
+        <div class="tile">
+          <div class="label">Max lines</div>
+          <div id="stat-maxlines" class="value">–</div>
+        </div>
+      </div>
+    </section>
+
+    <h2>Commits by time of day</h2>
+    <div id="chart" role="img" aria-label="Commits by time of day bubble chart"></div>
+    <p id="selection-count" class="note">No commits selected</p>
+
+    <!-- Hover/Click tooltip -->
+    <dl id="commit-tooltip" class="info tooltip" hidden>
+      <dt>Commit</dt><dd><a href="#" id="commit-link" target="_blank" rel="noopener"></a></dd>
+      <dt>Date</dt><dd id="commit-date"></dd>
+      <dt>Time</dt><dd id="commit-time"></dd>
+      <dt>Author</dt><dd id="commit-author"></dd>
+      <dt>Lines edited</dt><dd id="commit-lines"></dd>
+    </dl>
+
+    <h3>Language breakdown (selection)</h3>
+    <div id="language-breakdown" class="stats small"></div>
+  </main>
+
+  <!-- Page logic -->
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
