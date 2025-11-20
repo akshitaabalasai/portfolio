@@ -21,6 +21,7 @@ const pages = [
   { url: "contact/",  title: "Contact" },
   { url: "resume/",   title: "Resume" },
   { url: "https://github.com/akshitaabalasai", title: "GitHub", external: true },
+  { url: "meta/", title: "Meta", external: true },
 ];
 
 document.querySelector("nav")?.remove();
