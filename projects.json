@@ -1,5 +1,13 @@
 [
     {
+      "title": "JPMorgan Chase Data for Good: National Education Equity Lab Insights",
+      "year": "2025",
+      "image": "jpmc_hackathon.png",
+      "badge": "🏆 1st Place",
+      "tags": ["Python", "pandas", "seaborn", "Matplotlib"],
+      "description": "Won 1st place at JPMorgan Chase's invite-only Data for Good hackathon by leading product development of an analytics tool that turned student data into actionable insights for the National Education Equity Lab."
+    },
+    {
       "title": "The Evolution of Virtual & Augmented Reality",
       "year": "2024",
       "image": "research.png",

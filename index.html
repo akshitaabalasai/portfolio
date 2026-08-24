@@ -3,31 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <br>
-  <title>Akshitaa: Personal site and portfolio</title>
+  <title>Akshitaa Balasai — Portfolio</title>
+  <meta name="description" content="Akshitaa Balasai — Data Science student at UC San Diego focused on product management, data analytics, and technology." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%234f46e5'/%3E%3Cstop offset='.5' stop-color='%237c3aed'/%3E%3Cstop offset='1' stop-color='%23ec4899'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ctext x='32' y='45' font-family='Arial,Helvetica,sans-serif' font-size='34' font-weight='700' fill='white' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <h1><center>Akshitaa Balasai</center></h1>
-  <br>
-  <p><center>Hello! I’m Akshitaa, a third-year Data Science Student at UC San Diego interested in product management, data analytics, and technology. I’m also the Technology Lead of Digitize Tech, a nationwide mentorship program for underrepresented students in technology, and co-lead the Mozilla Responsible Computing Club. Having lived in multiple states and countries, I bring a global perspective and a passion for building inclusive, data-driven solutions that create meaningful impact.
-  </center></p>
-  <br>
-  <center><img src="profphoto.png" width="400" alt="Akshitaa portrait" /></center>
-  <br>
-  <br>
-  <br>
-  <br>
-  <h2>My Latest Projects:</h2>
-  <br>
+  <section class="hero">
+    <div class="hero-text">
+      <span class="hero-kicker">Data Science @ UC San Diego</span>
+      <h1 class="gradient-text">Hi, I'm Akshitaa Balasai</h1>
+      <p class="hero-tagline">
+        I'm a third-year Data Science student at UC San Diego interested in product management, data analytics, and
+        technology. I'm also the Technology Lead of Digitize Tech, a nationwide mentorship program for
+        underrepresented students in technology, and co-lead the Mozilla Responsible Computing Club. Having lived in
+        multiple states and countries, I bring a global perspective and a passion for building inclusive,
+        data-driven solutions that create meaningful impact.
+      </p>
+      <div class="hero-actions">
+        <a class="pill pill-accent" href="resume/">View Resume</a>
+        <a class="pill" href="projects/">See Projects</a>
+        <a class="pill" href="contact/">Get in Touch</a>
+      </div>
+    </div>
+    <div class="hero-photo-wrap">
+      <img class="hero-photo" src="profphoto.png" alt="Akshitaa portrait" />
+    </div>
+  </section>
+
+  <h2 class="section-title">Featured Projects</h2>
   <div class="projects"></div>
 
   <section class="github-stats">
-    <h2>My GitHub Stats</h2>
+    <h2 class="section-title">My GitHub Stats</h2>
     <div id="profile-stats" class="stats-grid five-up"></div>
   </section>
-  
 
   <script src="global.js" type="module" defer></script>
   <script src="index.js" type="module" defer></script>

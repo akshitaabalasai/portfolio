@@ -59,7 +59,7 @@ for (const p of pages) {
 document.body.insertAdjacentHTML(
   "afterbegin",
   `
-  <label class="color-scheme" style="position:fixed;right:1rem;top:.5rem">
+  <label class="color-scheme">
     Theme:
     <select id="theme-select">
       <option value="light dark">Automatic</option>
@@ -159,11 +159,21 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
       ? (raw.startsWith('http') ? raw : `${BASE_PATH}${raw.replace(/^\/+/, '')}`)
       : 'https://dsc106.com/labs/lab02/images/empty.svg';
 
+    const badge = p?.badge
+      ? `<span class="project-badge">${p.badge}</span>`
+      : '';
+
+    const tags = Array.isArray(p?.tags) && p.tags.length
+      ? `<div class="project-tags">${p.tags.map(t => `<span class="chip">${t}</span>`).join('')}</div>`
+      : '';
+
     article.innerHTML = `
+      ${badge}
       <${validHeading}>${title}</${validHeading}>
       <img src="${imgSrc}" alt="${title}">
       <span class="project-year">Year: ${p?.year ?? ''}</span>
       <p class="project-desc">${desc}</p>
+      ${tags}
     `;
 
     containerElement.appendChild(article);
