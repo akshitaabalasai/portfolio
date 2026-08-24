@@ -1,7 +1,7 @@
 import { renderProjects } from './global.js';
 
 const projectsEl = document.querySelector('.projects');
-fetch('./projects.json')
+fetch('./projects.json?v=3')
   .then(r => r.json())
   .then(all => renderProjects(all.slice(0, 3), projectsEl, 'h3'));
 

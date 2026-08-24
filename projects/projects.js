@@ -8,7 +8,7 @@ const countOut = document.getElementById('count');
 const pieSVG = d3.select('#projects-pie-plot');
 const legendEl = document.getElementById('legend');
 
-const projects = await fetchJSON('../projects.json') || [];
+const projects = await fetchJSON('../projects.json?v=3') || [];
 
 projects.forEach(p => {
   if (p.year == null) {

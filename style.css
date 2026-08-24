@@ -41,6 +41,12 @@ html {
   color-scheme: light dark;
   background: canvas;
   color: canvastext;
+  background-image:
+    radial-gradient(circle at 6% 4%, color-mix(in oklch, var(--color-primary), transparent 86%), transparent 42%),
+    radial-gradient(circle at 94% 10%, color-mix(in oklch, var(--color-secondary), transparent 87%), transparent 40%),
+    radial-gradient(circle at 50% 100%, color-mix(in oklch, var(--color-tertiary), transparent 92%), transparent 45%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 /* ---------- Layout / Typography ---------- */
@@ -250,18 +256,6 @@ form button, form .pill-accent { grid-column: 1 / -1; justify-self: start; }
   font-size: clamp(2.4rem, 6vw, 3.8rem);
   margin: 0 0 .5rem;
 }
-.hero-kicker {
-  display: inline-block;
-  font-weight: 700;
-  font-size: .8rem;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: var(--color-primary);
-  background: color-mix(in oklch, var(--color-primary), canvas 88%);
-  padding: .3rem .75rem;
-  border-radius: 999px;
-  margin-bottom: .9rem;
-}
 .hero-tagline {
   font-size: 1.08rem;
   color: var(--text-muted);
@@ -277,7 +271,7 @@ form button, form .pill-accent { grid-column: 1 / -1; justify-self: start; }
 .hero-photo-wrap {
   position: relative;
   justify-self: center;
-  width: min(320px, 100%);
+  width: min(220px, 60%);
 }
 .hero-photo-wrap::before {
   content: "";
@@ -302,7 +296,7 @@ form button, form .pill-accent { grid-column: 1 / -1; justify-self: start; }
 }
 @media (max-width: 760px) {
   .hero { grid-template-columns: 1fr; text-align: center; }
-  .hero-actions, .hero-kicker { justify-content: center; }
+  .hero-actions { justify-content: center; }
   .hero-tagline { margin-inline: auto; }
 }
 
@@ -437,12 +431,27 @@ main, .resume { margin-top: 1.25rem; }
 }
 .chip {
   font-size: .7rem;
-  font-weight: 600;
-  padding: .22rem .6rem;
+  font-weight: 700;
+  padding: .22rem .65rem;
   border-radius: 999px;
-  background: var(--surface-hover);
-  border: 1px solid var(--border-subtle);
-  color: var(--text-muted);
+  background: color-mix(in oklch, var(--color-primary), canvas 88%);
+  border: 1px solid color-mix(in oklch, var(--color-primary), transparent 75%);
+  color: var(--color-primary-dark);
+}
+.chip:nth-of-type(4n+2) {
+  background: color-mix(in oklch, var(--color-secondary), canvas 87%);
+  border-color: color-mix(in oklch, var(--color-secondary), transparent 75%);
+  color: color-mix(in oklch, var(--color-secondary), black 25%);
+}
+.chip:nth-of-type(4n+3) {
+  background: color-mix(in oklch, var(--color-tertiary), canvas 85%);
+  border-color: color-mix(in oklch, var(--color-tertiary), transparent 72%);
+  color: color-mix(in oklch, var(--color-tertiary), black 30%);
+}
+.chip:nth-of-type(4n+4) {
+  background: color-mix(in oklch, var(--color-success), canvas 87%);
+  border-color: color-mix(in oklch, var(--color-success), transparent 75%);
+  color: color-mix(in oklch, var(--color-success), black 25%);
 }
 .project-badge {
   position: absolute;
